@@ -26,11 +26,14 @@ spec:
         - containerPort: 80
         securityContext:
           allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
           privileged: false
-          readOnlyRootFilesystem: false
-          runAsGroup: 2000
+          readOnlyRootFilesystem: true
+          runAsGroup: 3000
           runAsNonRoot: true
-          runAsUser: 101
+          runAsUser: 1001
           seccompProfile:
             type: RuntimeDefault
         resources:
